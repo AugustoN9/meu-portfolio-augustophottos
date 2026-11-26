@@ -1,0 +1,63 @@
+/* Hero Banner */
+.hero-section {
+  position: relative;
+  height: 65vh;
+  min-height: 400px;
+  /* Substitua pela URL direta da sua melhor foto de capa */
+  background: url("https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1600")
+    center/cover no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Grid Assimétrico (Estilo Wireframe) */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 240px;
+  grid-auto-flow: dense;
+  gap: 12px;
+}
+
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #e9ecef;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.grid-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Modificadores de proporção para criar o mosaico do seu desenho */
+.item-tall {
+  grid-row: span 2; /* Bloco vertical alto (amarelo à esquerda no wireframe) */
+}
+
+.item-wide {
+  grid-column: span 2; /* Bloco horizontal largo (laranja no wireframe) */
+}
+
+/* Responsividade para celulares */
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
+  }
+  .item-wide {
+    grid-column: span 2;
+  }
+}
